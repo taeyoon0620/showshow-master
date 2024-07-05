@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import SignUp from './components/SignUp';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import HomePage from './components/HomePage';
-import logoImage from './Images/LOGOIMAGE.PNG'; 
-import './App.css'; // Correct import path for App.css
-import Grid from './components/Grid'; 
+import logoImage from './Images/LOGOIMAGE.PNG';
+import Grid from './components/Grid';
+import './App.css';
 import SearchBar from './components/SearchBar';
-import Sidebar from './components/Sidebar'; 
-import CardComponent from './components/CardComponent'; 
+import Sidebar from './components/Sidebar';
+import CardComponent from './components/CardComponent';
+import CountdownTimer from './components/CountdownTimer';
+import SignUp from './components/SignUp';
+import busking from './Images/busking.jpg'; // 이미지 import
 
 const App = () => {
     const [darkMode, setDarkMode] = useState(false);
@@ -35,72 +37,77 @@ const App = () => {
                     </button>
 
                     <img src={logoImage} alt="Logo" className="logo-image" />
-            
+
                     <Grid />
                     <SearchBar />
-                    <div class="container">
+                    <div className="container">
                         <p>장르별 공연 정보!</p>
                     </div>
-                
+
                     <div className="card-container">
-                        <CardComponent 
-                            imageUrl="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png"
-                            title="클래식 만찬 신청 링크" 
-                            description="" 
+                        <CardComponent
+                            title="클래식 만찬 신청 링크"
+                            description=""
+                            imgSrc={busking} // 이미지 경로
                         />
-                        <CardComponent 
-                            imageUrl="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png"
-                            title="버스킹 공연 신청 링크" 
-                            description="" 
+                        <CardComponent
+                            title="버스킹 공연 신청 링크"
+                            description=""
+                            imgSrc="https://example.com/image2.png"
                         />
-                        <CardComponent 
-                            imageUrl="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png"
-                            title="임영웅 ImHero 콘서트 예매 링크" 
-                            description="" 
+                        <CardComponent
+                            title="임영웅 ImHero 콘서트 예매 링크"
+                            description=""
+                            imgSrc="https://example.com/image3.png"
                         />
-                        <CardComponent 
-                            imageUrl="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png"
-                            title="국악 마당 예매 링크" 
-                            description="" 
+                        <CardComponent
+                            title="국악 마당 예매 링크"
+                            description=""
+                            imgSrc="https://example.com/image4.png"
                         />
                     </div>
 
-                    <hr></hr>
-                    <div class="container">
+                    <hr />
+
+                    <div className="container">
                         <p>인기별 공연 정보 찾기!</p>
                     </div>
 
-
                     <div className="card-container">
-                        <CardComponent 
-                            imageUrl="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png"
-                            title="클래식 만찬 신청 링크" 
-                            description="" 
+                        <CardComponent
+                            title="클래식 만찬 신청 링크"
+                            description=""
+                            imgSrc="https://example.com/image5.png"
                         />
-                        <CardComponent 
-                            imageUrl="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png"
-                            title="버스킹 공연 신청 링크" 
-                            description="" 
+                        <CardComponent
+                            title="버스킹 공연 신청 링크"
+                            description=""
+                            imgSrc="https://example.com/image6.png"
                         />
-                        <CardComponent 
-                            imageUrl="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png"
-                            title="임영웅 ImHero 콘서트 예매 링크" 
-                            description="" 
+                        <CardComponent
+                            title="임영웅 ImHero 콘서트 예매 링크"
+                            description=""
+                            imgSrc="https://example.com/image7.png"
                         />
-                        <CardComponent 
-                            imageUrl="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png"
-                            title="국악 마당 예매 링크" 
-                            description="" 
+                        <CardComponent
+                            title="국악 마당 예매 링크"
+                            description=""
+                            imgSrc="https://example.com/image8.png"
                         />
                     </div>
 
-                
+                    <div className="container">
+                        <h1>Countdown Timer</h1>
+                        <CountdownTimer targetDate="2025-01-01T00:00:00" />
+                    </div>
 
-                    <hr></hr>
-                    
+                    <hr />
+
+                    <Link to="/signup" className="signup-link">회원가입</Link> 
+
                     <Routes>
                         <Route path="/" element={<HomePage toggleDarkMode={toggleDarkMode} />} />
-                        <Route path="/signup" element={<SignUp />} />
+                        <Route path="/signup" element={<SignUp />} /> 
                     </Routes>
                 </div>
             </div>
